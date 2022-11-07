@@ -1,6 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, Image, ActivityIndicator} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  ActivityIndicator,
+  StyleSheet,
+  ScrollView,
+} from 'react-native';
 import {API_KEY} from '@env';
+import TagBox from '../components/TagBox';
 
 interface infoState {
   title: string;
@@ -50,31 +58,76 @@ const Details = ({route}: any) => {
   }, []);
 
   return (
-    <View>
+    <View style={styles.container}>
       {isLoading ? (
         <ActivityIndicator size="large" />
       ) : (
-        <View>
-          <Text>Title: {info.title}</Text>
-          <Text>Description: {info.description}</Text>
-          <Text>
-            Tags:{' '}
-            {info.tags.map(tag => (
-              <Text key={tag.raw}>{tag.raw},</Text>
-            ))}
+        <ScrollView style={styles.detailsContainer}>
+          <Text style={[styles.mainFonts, {fontSize: 20}]}>{info.title}</Text>
+          <View style={styles.midlleLine} />
+          <Text style={styles.mainFonts}>
+            {info.description.length < 100
+              ? `${info.description}`
+              : `${info.description.substring(0, 97)}...`}
           </Text>
-          <Text>URL: {info.url}</Text>
-          <Text>Owner: {info.owner}</Text>
           <Image
-            style={{width: 300, height: 300}}
+            style={styles.image}
             source={{
               uri: imageURL,
             }}
           />
-        </View>
+          <Text style={[styles.mainFonts, {textAlign: 'right'}]}>
+            By: {info.owner}
+          </Text>
+          <Text style={styles.mainFonts}>{info.url}</Text>
+          <View style={styles.tagsList}>
+            {info.tags.map(tag => (
+              <TagBox tag={tag.raw} />
+            ))}
+          </View>
+        </ScrollView>
       )}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  detailsContainer: {
+    flex: 1,
+    margin: 5,
+    paddingTop: 5,
+    backgroundColor: '#fff',
+  },
+  mainFonts: {
+    fontSize: 14,
+    textAlign: 'center',
+    fontFamily: 'Cochin',
+    color: '#5b5555',
+    padding: 8,
+  },
+  midlleLine: {
+    borderBottomColor: '#5b5555',
+    borderBottomWidth: 1,
+    margin: 5,
+  },
+  image: {
+    width: 350,
+    height: 350,
+    marginTop: 10,
+    //marginHorizontal: 20,
+  },
+  tagsList: {
+    width: 200, 
+    marginTop: 20,
+    flexDirection: 'row',
+    jflexWrap: 'wrap',
+  },
+});
 
 export default Details;

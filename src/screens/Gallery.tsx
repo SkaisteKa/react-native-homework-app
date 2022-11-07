@@ -1,4 +1,4 @@
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, StyleSheet} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {API_KEY} from '@env';
 import GalleryItem from '../components/GalleryItem';
@@ -38,19 +38,53 @@ const Gallery = ({navigation}) => {
   }, []);
 
   return (
-    <View>
-      <Text>Gallery</Text>
-      <FlatList
-        data={photosData}
-        renderItem={renderItem}
-        numColumns={3}
-        keyExtractor={item => item.id}
-        initialNumToRender={numberPerPage}
-        onEndReachedThreshold={0.7}
-        onEndReached={() => fetchNextPhotos()}
-      />
+    <View style={styles.container}>
+      <View style={styles.label}>
+        <Text style={[styles.mainFonts, {fontSize: 25, fontWeight: 'bold'}]}>
+          Gallery
+        </Text>
+        <View style={styles.midlleLine} />
+        <Text style={styles.mainFonts}>Homework Assignment</Text>
+      </View>
+      <View style={styles.imagesList}>
+        <FlatList
+          columnWrapperStyle={{justifyContent: 'space-between'}}
+          data={photosData}
+          renderItem={renderItem}
+          numColumns={3}
+          keyExtractor={item => item.id}
+          initialNumToRender={numberPerPage}
+          onEndReachedThreshold={0.7}
+          onEndReached={() => fetchNextPhotos()}
+        />
+      </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  label: {
+    margin: 20,
+  },
+  mainFonts: {
+    textAlign: 'center',
+    fontFamily: 'Cochin',
+    color: '#5b5555',
+    padding: 8,
+  },
+  midlleLine: {
+    borderBottomColor: '#5b5555',
+    borderBottomWidth: 1,
+  },
+  imagesList: {
+    flex: 3,
+  },
+});
 
 export default Gallery;

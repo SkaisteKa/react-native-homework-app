@@ -15,7 +15,7 @@ const GalleryItem = ({server, id, secret}: GalleryItemProps) => {
     <TouchableOpacity
       onPress={() => navigation.navigate('Details', {id, imageURL})}>
       <Image
-        style={{width: 100, height: 100}}
+        style={{width: 100, height: 100, margin: 2, borderRadius: 10}}
         source={{
           uri: imageURL,
         }}
