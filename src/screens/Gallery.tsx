@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import {API_KEY} from '@env';
 import GalleryItem from '../components/GalleryItem';
 
-const Gallery = () => {
+const Gallery = ({navigation}) => {
   const [photosData, setPhotosData] = useState<any>([]);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const numberPerPage: number = 50;
