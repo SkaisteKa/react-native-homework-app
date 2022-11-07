@@ -3,10 +3,10 @@ import React, {useState, useEffect} from 'react';
 import {API_KEY} from '@env';
 import GalleryItem from '../components/GalleryItem';
 
-const Gallery = ({navigation}) => {
+const Gallery = () => {
   const [photosData, setPhotosData] = useState<any>([]);
   const [pageNumber, setPageNumber] = useState<number>(1);
-  const numberPerPage: number = 50;
+  const numberPerPage: number = 40;
   const getRecentURL =
     'https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&name=value';
   const params = `&api_key=${API_KEY}&format=json&nojsoncallback=1&per_page=${numberPerPage}&page=${pageNumber}`;

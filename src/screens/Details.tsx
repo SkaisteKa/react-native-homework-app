@@ -13,7 +13,7 @@ import TagBox from '../components/TagBox';
 interface infoState {
   title: string;
   description: string;
-  tags: Array<string>;
+  tags: Array<any>;
   url: string;
   owner: string;
 }
@@ -117,16 +117,15 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   image: {
-    width: 350,
     height: 350,
-    marginTop: 10,
-    //marginHorizontal: 20,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   tagsList: {
-    width: 200, 
     marginTop: 20,
     flexDirection: 'row',
-    jflexWrap: 'wrap',
+    flexWrap: 'wrap',
   },
 });
 

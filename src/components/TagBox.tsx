@@ -1,12 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const TagBox = ({tag}: string) => {
+const TagBox = ({tag}: any) => {
   return (
     <View style={styles.box} key={tag}>
-      <Text style={styles.tagText}>
-        {tag}
-      </Text>
+      <Text style={styles.tagText}>{tag}</Text>
     </View>
   );
 };
@@ -19,6 +17,7 @@ const styles = StyleSheet.create({
     margin: 2,
     padding: 5,
     borderRadius: 5,
+    height: 30,
   },
   tagText: {
     textAlign: 'center',

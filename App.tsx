@@ -4,7 +4,12 @@ import {NavigationContainer} from '@react-navigation/native';
 import Gallery from './src/screens/Gallery';
 import Details from './src/screens/Details';
 
-const Stack = createNativeStackNavigator();
+type StackParamList = {
+  Gallery: undefined;
+  Details: {id: string; imageURL: string};
+};
+
+const Stack = createNativeStackNavigator<StackParamList>();
 
 const App = () => {
   return (
