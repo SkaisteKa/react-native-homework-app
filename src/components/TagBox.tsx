@@ -3,7 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 
 const TagBox = ({tag}: any) => {
   return (
-    <View style={styles.box} key={tag}>
+    <View style={styles.box}>
       <Text style={styles.tagText}>{tag}</Text>
     </View>
   );

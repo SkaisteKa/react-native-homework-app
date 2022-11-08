@@ -82,7 +82,7 @@ const Details = ({route}: any) => {
           <Text style={styles.mainFonts}>{info.url}</Text>
           <View style={styles.tagsList}>
             {info.tags.map(tag => (
-              <TagBox tag={tag.raw} />
+              <TagBox tag={tag.raw} key={tag.id} />
             ))}
           </View>
         </ScrollView>

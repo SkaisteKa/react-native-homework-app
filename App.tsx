@@ -14,7 +14,10 @@ const Stack = createNativeStackNavigator<StackParamList>();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          animation: 'fade',
+        }}>
         <Stack.Screen
           name="Gallery"
           component={Gallery}
