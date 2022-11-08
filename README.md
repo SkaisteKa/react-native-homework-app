@@ -18,7 +18,7 @@ Android
 
 ## Details
 
-Created using **create-react-app** together with **typescript** template.
+Created using **create-react-native-app** together with **typescript** template.
 
 Used libraries:
 * React Navigation
