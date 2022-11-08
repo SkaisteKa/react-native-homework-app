@@ -5,10 +5,16 @@
 React Native mobile application showcasing images from Flickr API.
 
 iOS
-![iOS1](./public/ios1.jpg) ![iOS2](public/ios2.jpg)
+<p float="left">
+  <img src="public/ios1.jpg" height="200" alt="ios main screen" />
+  <img src="public/ios2.jpg" height="200" alt="ios second screen" />
+</p>  
 
 Android
-![and1](public/ios1.jpg) ![and2](public/ios1.jpg)
+<p float="left">
+  <img src="public/and1.jpg" height="200" alt="android main screen" />
+  <img src="public/and2.jpg" height="200" alt="android second screen" />
+</p>  
 
 ## Details
 
