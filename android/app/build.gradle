@@ -1,4 +1,7 @@
-apply plugin: "com.android.application"
+plugins {
+  id 'com.android.application'
+  id 'com.google.gms.google-services'
+}
 
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -212,10 +215,10 @@ android {
     }
     signingConfigs {
         debug {
-            storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
+            storeFile file('firebase.keystore')
+            storePassword 'majamaja'
+            keyAlias 'fbalias'
+            keyPassword 'majamaja'
         }
     }
     buildTypes {
@@ -277,6 +280,11 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+    // Import the Firebase BoM
+        implementation platform('com.google.firebase:firebase-bom:31.0.2')
+        implementation 'com.google.firebase:firebase-analytics'
+        implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+
 }
 
 if (isNewArchitectureEnabled()) {

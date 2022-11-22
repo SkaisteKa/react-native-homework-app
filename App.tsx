@@ -3,8 +3,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Gallery from './src/screens/Gallery';
 import Details from './src/screens/Details';
+import Login from './src/screens/Login';
 
 type StackParamList = {
+  LoginScreen: undefined;
   Gallery: undefined;
   Details: {id: string; imageURL: string};
 };
@@ -18,6 +20,11 @@ const App = () => {
         screenOptions={{
           animation: 'fade',
         }}>
+        <Stack.Screen
+          name="LoginScreen"
+          component={Login}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name="Gallery"
           component={Gallery}
